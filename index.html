@@ -14,6 +14,19 @@ html,body{
 }
 </style>
 
+<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                var audio = document.getElementById('bgmusic');
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                    }, false);
+                 }
+                 audioAutoPlay();
+                 });
+</script>
+
 </head>
 <body>
 	<marquee style="position: fixed; top: 10px; width: 100%; color: #fff" scrollamount="10">Happy birthday!           生日快乐！</marquee>
@@ -25,7 +38,7 @@ html,body{
     <marquee style="position: fixed; top: 50px; width: 100%;color: #00ff90" scrollamount="5">祝你生日快乐，没有烦恼！</marquee>
     <marquee style="position: fixed; top: 50px; width: 100%;color: #00ff90" scrollamount="5">祝你生日快乐，没有烦恼！</marquee>
 
-<audio id= "audios" autoplay="autoplay" loop="loop" preload="auto" controls = "controls" type = "audio/mp3"
+<audio autoplay="autoplay" loop="loop" preload="auto" id = "bgmusic"
 
             	src="./所念皆星河.mp3"></audio>
 <canvas id="canvas" style="position:absolute;width:100%;height:100%;z-index:8888"></canvas>
