@@ -41,6 +41,10 @@ html,body{
   </div>
 </div>
 <script>
+ document.addEventListener('WeixinJSBridgeReady', function() {
+        document.getElementById('audios').play()
+    })
+
 function initVars(){
 	pi=Math.PI;
 	ctx=canvas.getContext("2d");
