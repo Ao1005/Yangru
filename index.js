@@ -16,6 +16,12 @@ var S = {
       S.Drawing.loop(function () {
         S.Shape.render();
       });
+
+      document.addEventListener('WeixinJSBridgeReady', function() {
+
+        document.getElementById('audios').play()
+        
+        })
   }
 };
 
