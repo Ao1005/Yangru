@@ -40,7 +40,10 @@ html,body{
   </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+
+function initVars(){
+
+	document.addEventListener('DOMContentLoaded', function () {
             function audioAutoPlay() {
                 var audio = document.getElementById('bgmusic');
                 audio.play();
@@ -51,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
                  audioAutoPlay();
                  });
 
-function initVars(){
 	pi=Math.PI;
 	ctx=canvas.getContext("2d");
 	canvas.width=canvas.clientWidth;
