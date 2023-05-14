@@ -54,32 +54,28 @@ html,body{
 	//--创建页面监听，等待微信端页面加载完毕 触发音频播放
 
 
-	function doPlay(){
-  WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
-    var $audio = $("#audio")
-    $audio.play()
-  })
-}
       
+
+
+
+ 
+document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById('bgmusic');
+            audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
+    audioAutoPlay();
+});
+
 if (window.WeixinJSBridge) {
   doPlay()
 } else {
   document.addEventListener("WeixinJSBridgeReady", function(){
     doPlay()
-  }, false);
-
-
- 
-// document.addEventListener('DOMContentLoaded', function () {
-//     function audioAutoPlay() {
-//         var audio = document.getElementById('bgmusic');
-//             audio.play();
-//         document.addEventListener("WeixinJSBridgeReady", function () {
-//             audio.play();
-//         }, false);
-//     }
-//     audioAutoPlay();
-// });
+  }, false);}
 // //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
 // document.addEventListener('touchstart', function () {
 //     function audioAutoPlay() {
@@ -91,7 +87,6 @@ if (window.WeixinJSBridge) {
 
 
 function initVars(){
-	doPlay();
 	pi=Math.PI;
 	ctx=canvas.getContext("2d");
 	canvas.width=canvas.clientWidth;
