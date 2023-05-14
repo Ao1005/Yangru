@@ -10,8 +10,7 @@ var S = {
       if (i !== -1) {
         S.UI.simulate(decodeURI(action).substring(i + 3));
       } else {
-        // S.UI.simulate('|#countdown 3||杨薷|祝|你|生日快乐|❤|');
-        S.UI.simulate('|#countdown 3||❤|');
+        S.UI.simulate('|#countdown 3||杨薷|祝|你|生日|快乐|Happy Birthday|❤|');
       }
 
       S.Drawing.loop(function () {
