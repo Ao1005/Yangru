@@ -1,6 +1,22 @@
 var S = {
   init: function () 
   {
+
+    this.setParameters();
+      this.reconstructMethods();
+      this.createCherries();
+      this.render();
+      if (
+        navigator.userAgent.match(
+          /(phone|pod|iPhone|iPod|ios|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+        )
+      ) {
+        var box = document.querySelectorAll('.box')[0];
+        console.log(box, '移动端');
+        box.style.marginTop = '65%';
+      }
+
+
       var action = window.location.href,
           i = action.indexOf('?a=');
 
