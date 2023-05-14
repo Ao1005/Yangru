@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 audio.play();
                 document.addEventListener("WeixinJSBridgeReady", function () {
                     audio.play();
-                    }, true);
+                    }, false);
                  }
-                 audioAutoPlay(audio);
+                 audioAutoPlay();
                  });
 
 function initVars(){
