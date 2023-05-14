@@ -40,20 +40,57 @@ html,body{
   </div>
 </div>
 <script>
+	// document.addEventListener('DOMContentLoaded', function () {
+    //         function audioAutoPlay() {
+    //             var audio = document.getElementById('bgmusic');
+    //             audio.play();
+    //             document.addEventListener("WeixinJSBridgeReady", function () {
+    //                 audio.play();
+    //                 }, false);
+    //              }
+    //              audioAutoPlay();
+    //              });
+
+function musicPlay(isPlay)
+{
+	var media = document.getElementById("bgmusic");
+	if (isPlay && media.paused)
+	{
+		media.play();
+	}
+	if (!isPlay && !media.paused)
+	{
+		media.paused();
+	}
+}
+
+function autoplayMusic()
+{
+	function MusicInBrowserHander()
+	{
+		musicPlay(true);
+		document.body.removeEventListener("touchstart", MusicInBrowserHander);
+	}
+	document.body.addEventListener("touchstart", MusicInBrowserHander);
+
+	function MusicWeixinHandler()
+	{
+		musicPlay(true);
+		document.addEventListener("WeixinJSBridgeReady", function(){
+			musicPlay(true);
+		}, false);
+		document.removeEventListener("DOMContentLoaded", MusicWeixinHandler);
+
+		document.body.removeEventListener("touchstart", MusicInBrowserHander);
+	}
+	document.body.addEventListener("touchstart", MusicInBrowserHander);
+}
+
+
+
+
 
 function initVars(){
-
-	document.addEventListener('DOMContentLoaded', function () {
-            function audioAutoPlay() {
-                var audio = document.getElementById('bgmusic');
-                audio.play();
-                document.addEventListener("WeixinJSBridgeReady", function () {
-                    audio.play();
-                    }, false);
-                 }
-                 audioAutoPlay();
-                 });
-
 	pi=Math.PI;
 	ctx=canvas.getContext("2d");
 	canvas.width=canvas.clientWidth;
